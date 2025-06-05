@@ -143,7 +143,7 @@ FROM SHIP.SH_SHIP s
 LEFT JOIN SHIP.SH_SHIP_TYPE st ON s.sh_type = st.t_id
 WHERE sh_id NOT IN (SELECT ship FROM SHIP.SH_TRIP);
 
--- 9 !! Did not finished
+-- 9
 CREATE TABLE my_staff (
     id NUMBER(5),
     last_name VARCHAR2(40) NOT NULL,
@@ -163,7 +163,7 @@ WHERE 1=0;
 
 GRANT INSERT ON my_ship TO PUBLIC;
 
--- 11 !! Did not finished
+-- 11
 CREATE TABLE my_trip AS
 SELECT * FROM SHIP.SH_TRIP;
 
@@ -278,7 +278,7 @@ SELECT constraint_name, constraint_type
 FROM user_constraints
 WHERE table_name = 'MY_TRIP';
 
--- 11 !! Did not work
+-- 11
 DELETE FROM SHIP.SH_TRIP
 WHERE departure_time >= TO_DATE('2021-06-01', 'yyyy-mm-dd')
 AND departure_time < TO_DATE('2021-07-01', 'yyyy-mm-dd')
@@ -299,41 +299,3 @@ RIGHT JOIN SHIP.SH_COUNTRY co ON co.country = ci.country
 GROUP BY co.country;
 
 --------------------------------------------------------------------------------------
-
--- C Paper --
--- 1
-
-
--- 2
-SELECT last_name, first_name, date_of_birth FROM SHIP.SH_CLIENT
-WHERE TO_CHAR(DATE_OF_BIRTH, 'fmMonth') IN ('June', 'July', 'August')
-ORDER BY TO_CHAR(DATE_OF_BIRTH, 'fmMonth'), last_name, first_name;
-
--- 3
-
-
--- 4
-
-
--- 5
-
-
--- 6
-
-
--- 7
-
-
--- 8
-
-
--- 9
-
-
--- 10
-ALTER TABLE sh_port_phone DROP CONSTRAINT SH_PP_PK;
-
--- 11
-
-
--- 12
